@@ -347,7 +347,7 @@ class GeneralLedgerXslx(models.AbstractModel):
                             "final_balance": account["fin_bal"]["balance"],
                         }
                     )
-                    if foreign_currency and account["fin_bal_currency_id"]:
+                    if foreign_currency and account.get("fin_bal_currency_id", False):
                         account.update(
                             {
                                 "final_bal_curr": total_bal_curr,
